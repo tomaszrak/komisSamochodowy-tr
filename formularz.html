@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<title>Komis samochodowy - Rzeszów</title>
+		<link rel="stylesheet" href="style.css" type="text/css" />
+		<script src="skrypty_js/formularz.js" type="text/javascript"></script>
+		<script src="skrypty_js/skrypt.js"  type="text/javascript"></script>		
+		<script src="skrypty_js/scriptaculous/lib/prototype.js" type="text/javascript"></script>
+		<script src="skrypty_js/scriptaculous/src/effects.js" type="text/javascript"></script>
+                <script  src="skrypty_js/validation.js" type="text/javascript"></script>
+		<script  src="skrypty_js/ajaxupload.js" type="text/javascript"></script>
+	</head>
+	
+	<body onload="WczytajMenu(); return false;">
+	
+		<div class="pojemnik">
+			<div class="baner">
+				<div class="logowanie"><a class="login" href="skrypty_sql/zaloguj.php" title="Przejdź do logowania administratora serwisu"> Logowanie dla administratora</a></div>
+			</div>
+			
+			<div class="menu" style="padding: 0px 0px 0px 85px">
+				<ul id="menu_lista">
+					<li></li>
+				</ul>
+			</div>
+			
+			<div id ="tresc" class="tresc">
+				<div id="zawartosc" class="zawartosc">
+			
+					<h1 id="naglowek">Formularz</h1>
+					<div id="tekst" class="tekst">
+											
+					Za pomocą formularza mają Państwo możliwość zaproponowania nam swojego pojazdu. 
+					Prosiomy więc o dokoładne uzupełnienie pól kontaktowych.<br/>
+					<span style="float:right; font-size:12px; font-weight:bold; color: #bf0000; margin-right:10px;"> (*) - pozycja wymagana </span>
+					<form id="form1" method="post" action="formularz.php"> 
+						<p style="margin:0px; padding:5px 0px 0px;">Dane dotyczące pojazdu:</p> 
+						
+						<div class="pozycjaformularza">
+							<div class="opisformularza">Marka i model (*): </div>
+							<div class="poleformularza"><input type="text" name="marka" class="required" title="Niewypełnione wymagane pole."/></div>
+						</div>
+						
+						<div class="pozycjaformularza">
+							<div class="opisformularza" style="height:18px">Rodzaj silnika (*): </div>
+							<div class="poleformularza" style="height:18px">
+								<input type="radio" name="rodzajsilnika" value="benzyna"/>benzyna
+								<input type="radio" name="rodzajsilnika" value="diesel" class="validate-one-required" title="Wybierz jedną z dostępnych opcji."/>diesel
+							</div>
+						</div>
+						
+						<div class="pozycjaformularza">
+							<div class="opisformularza">Przebieg [km] (*): </div>
+							<div class="poleformularza"> <input type="text" name="przebieg"  class="required validate-number" title="Niewypełnione wymagane pole lub niepoprawnie wprowadzona wartość (dozwolone tylko cyfry)."/></div>
+						</div>						
+						
+						<div class="pozycjaformularza">
+							<div class="opisformularza">Rok produkcji (*): </div>
+							<div class="poleformularza"> <input type="text" name="rokprodukcji" class="required validate-number" title="Niewypełnione wymagane pole lub niepoprawnie wprowadzona wartość (dozwolone tylko cyfry)."/></div>
+						</div>						
+						
+						<div class="pozycjaformularza">
+							<div class="opisformularza">Kolor : </div>
+							<div class="poleformularza"> <input type="text" name="kolor" /></div><br />
+						</div>
+						
+						<div class="pozycjaformularza">
+							<div class="opisformularza">Proponowana cena [zł] : </div>
+							<div class="poleformularza"> <input type="text" name="cena" class="validate-number" title="Niepoporawnie wprowadzona wartość (dozwolone tylko cyfry)."/></div>
+						</div>
+						
+						<div class="pozycjaformularza">
+							<div class="opisformularza">Informacje dodatkowe : </div>
+							<div class="poleformularza"><input type="text" name="informacje" /></div>
+						</div>						
+						
+						<div class="pozycjaformularza">
+							<div class="opisformularza">Zdjęcie 1 : </div>
+							<div class="poleformularza"><input type="button" id="zdjecie1" value="Załaduj" style="width: 148px;" /></div>
+							
+						</div>
+						<div id="odp1" class="odp1"> </div>
+						<div class="pozycjaformularza">
+							<div class="opisformularza">Zdjęcie 2 : </div>
+							<div class="poleformularza"><input type="button" id="zdjecie2" value="Załaduj" style="width: 148px;" /></div>
+							
+						</div>
+							<div id="odp2" class="odp1"> </div>
+						<p style="margin:0px; padding:5px 0px 0px;">Dane dotyczące posiadacza:</p> 
+						
+						<div class="pozycjaformularza">
+							<div class="opisformularza">Imię i nazwisko (*): </div>
+							<div class="poleformularza"><input type="text" name="imienazw" class="required" title="Niewypełnione wymagane pole." /></div>
+						</div>
+
+						<div class="pozycjaformularza">
+							<div class="opisformularza">Telefon (*): </div>
+							<div class="poleformularza"><input type="text" name="telefon" class="required validate-number" title="Niewypełnione wymagane pole lub niepoprawny numer telefonu (dozwolone tylko cyfry)."/></div>
+						</div>
+
+						<div class="pozycjaformularza">
+							<div class="opisformularza">Adres e-mail (*): </div>
+							<div class="poleformularza"><input type="text" name="email" class="required validate-email" title="Niewypełnione wymagane pole lub niepoprawny adres  e-mail. Przykładowy adres to: user@op.pl"/></div>
+						</div>		
+						
+						<div class="pozycjaformularza">
+							<div class="opisformularza" style="padding-top:0px"><input type="button" name="send" value="Wyślij" onclick="WyslijDane(value);" /></div>
+							<div   class="poleformularza"><input type="button" name='reset' value="Wyczyść" onclick="location.reload(true);" /></div>
+						</div>
+							<div id="odp" style="text-align:center; width:420px; font-size:12px; font-weight:bold;"></div>
+					</form>
+					
+					<script type="text/javascript">
+						var valid = new Validation('form1',{immediate : true,useTitles : true});
+						new AjaxUpload('zdjecie1', {		
+						action: 'zdjecia_propozycje.php',
+						onComplete : function(file){
+							document.getElementById("odp1").innerHTML="Zdjęcie załadowane pomyślnie!";
+							document.getElementById('zdjecie1').setAttribute('disabled', 'disabled');
+						},
+						onSubmit : function(file , ext)
+						{
+							if (! ( /^(jpg|png|jpeg|gif|JPG|JPEG|PNG|GIF)$/.test(ext)))
+							{
+								alert('Błąd! Próba załadowania pliku o niepoprawnym rozszerzeniu! Preferowane rozszerzenia plików to: *.jpg, *.png, *.gif. Proszę spróbować ponownie.');
+								return false;
+							}
+						}
+					});
+
+					new AjaxUpload('zdjecie2', {		
+						action: 'zdjecia_propozycje.php',
+						onComplete : function(file){
+							document.getElementById("odp2").innerHTML="Zdjęcie załadowane pomyślnie!";
+							document.getElementById('zdjecie2').setAttribute('disabled', 'disabled');
+						},
+						onSubmit : function(file , ext)
+						{
+							if (! ( /^(jpg|png|jpeg|gif|JPG|JPEG|PNG|GIF)$/.test(ext)))
+							{
+								alert('Błąd! Próba załadowania pliku o niepoprawnym rozszerzeniu! Preferowane rozszerzenia plików to: *.jpg, *.png, *.gif. Proszę spróbować ponownie.');
+								return false;
+							}
+						}
+					});						
+					</script>
+					</div>
+				</div>
+			</div>
+	
+			<div class="stopka">
+			Designed by Wojciech Rębacz<br />
+			wojciech.rebacz@gmail.com <br/>
+			All rights reserved
+			</div>
+			
+		</div>
+	</body>
+	
+</html>

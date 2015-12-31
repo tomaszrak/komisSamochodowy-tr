@@ -1,3 +1,5 @@
+/* global ObiektXMLHttp, ObiektXMLHttp2 */
+
 function nowyObiektAjax() {
 	var ObiektXMLHttp;
 	try {
@@ -34,7 +36,7 @@ function WczytajMenu()
 					ilosc_pozycji=ObiektXMLHttp.responseXML.documentElement.getElementsByTagName("link").length;
 					for(i=0;i<ilosc_pozycji;i++)
 					{
-						text = text + "<li><a href="+
+						text = text + "<li><a href=\""+
 						ObiektXMLHttp.responseXML.documentElement.getElementsByTagName("link")[i].firstChild.nodeValue +"\" " +
 						ObiektXMLHttp.responseXML.documentElement.getElementsByTagName("zdarzenie")[i].firstChild.nodeValue +  ">" +
 						ObiektXMLHttp.responseXML.documentElement.getElementsByTagName("nazwa")[i].firstChild.nodeValue + "</a></li>";
@@ -53,8 +55,7 @@ function WczytajTrescStrony(numer_wezla)
 { 
 	if(ObiektXMLHttp2) 
 	{
-		var cel1=document.getElementById("naglowek");
-		var cel2=document.getElementById("tekst");
+		
 		var dlugosc;
 		var tekst2 = "";
 		var tekst3 = "";
@@ -78,8 +79,8 @@ function WczytajTrescStrony(numer_wezla)
 					tekst2=tekst2 +  ObiektXMLHttp2.responseXML.documentElement.getElementsByTagName("sekcja")[numer_wezla].firstChild.nodeValue;				tekst3=tekst3 + ObiektXMLHttp2.responseXML.documentElement.getElementsByTagName("tresc")[numer_wezla].childNodes[0].nodeValue;
 				}
 				//cel.innerHTML = tekst2;
-				cel1.innerHTML=tekst2;
-				cel2.innerHTML=tekst3;
+				document.getElementById("naglowek").innerHTML=tekst2;
+				document.getElementById("tekst").innerHTML=tekst3;
 				
 			}
 		} 
